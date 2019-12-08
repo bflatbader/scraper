@@ -1,0 +1,41 @@
+body {
+    background-color: #d1d1d8;
+}
+
+li { 
+    font-size: 14px;
+    padding-right: 10px;
+}
+
+.jumbotron {
+    background-image: url('../images/iphone-on-brown-wooden-table-1369476_grey.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    color: #ededed;
+    box-shadow: 0px 5px 20px grey;
+}
+
+.display-3 {
+    font-family: 'Vollkorn', serif;
+}
+
+.lead {
+    padding-left: 50px;
+    line-height: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    width: 100%;
+    background-color: #343a40;
+    color: #eee;
+    font-size: 10px;
+    text-align: right;
+}
