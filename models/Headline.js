@@ -1,3 +1,4 @@
+// DEPENDENCIES
 var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
@@ -7,6 +8,10 @@ var headlineSchema = new Schema({
         type: String,
         required: true,
         unique: true
+    },
+    link: {
+        type: String,
+        required: true
     },
     imgUrl: {
         type: String,
