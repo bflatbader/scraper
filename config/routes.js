@@ -1,6 +1,7 @@
 // DEPENDENCIES
 var axios = require("axios");
 var cheerio = require("cheerio");
+var moment = require("moment");
 
 // Require all models
 var db = require("../models");
@@ -9,7 +10,7 @@ module.exports = function(router) {
     
     // Route to render the home page
     router.get("/", function(req, res){
-        db.Headline.find({}).then(function(data) {
+        db.Headline.find({}).sort({date: -1}).then(function(data) {
             let articleData = {
                 articles: data
             };
@@ -52,6 +53,7 @@ module.exports = function(router) {
                     .children("p")
                     .children("span:nth-child(2)")
                     .text()
+                result.displayDate = moment(result.date).format('MMMM Do YYYY');
 
                 console.log(result);
                 db.Headline.create(result)

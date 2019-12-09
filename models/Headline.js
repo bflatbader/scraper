@@ -20,7 +20,8 @@ var headlineSchema = new Schema({
         type: String,
         required: true
     },
-    date: String,
+    date: Date,
+    displayDate: String,
     saved: {
         type: Boolean,
         default: false
