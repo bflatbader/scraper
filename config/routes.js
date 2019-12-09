@@ -9,7 +9,14 @@ module.exports = function(router) {
     
     // Route to render the home page
     router.get("/", function(req, res){
-        res.render("home");
+        db.Headline.find({}).then(function(data) {
+            let articleData = {
+                articles: data
+            };
+            res.render("home", articleData);
+        }).catch(function(err) {
+            res.json(err);
+        });
     });
 
     // Route to render the saved page
@@ -33,7 +40,7 @@ module.exports = function(router) {
                 result.link = $(this)
                     .children("a")
                     .attr("href");
-                result.imgURL = $(this)
+                result.imgUrl = $(this)
                     .children("a")
                     .children("img")
                     .attr("src");
@@ -46,6 +53,7 @@ module.exports = function(router) {
                     .children("span:nth-child(2)")
                     .text()
 
+                console.log(result);
                 db.Headline.create(result)
                     .then(function(dbHeadline) {
                         // View the added result in the console

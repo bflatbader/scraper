@@ -15,7 +15,6 @@ var headlineSchema = new Schema({
     },
     imgUrl: {
         type: String,
-        required: false
     },
     summary: {
         type: String,

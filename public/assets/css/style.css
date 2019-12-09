@@ -26,8 +26,43 @@ li {
     line-height: 10px;
 }
 
+.container {
+    overflow: auto;
+}
+
+.card {
+    background-color: #FAFAFA;
+    font-family: 'Gelasio', serif;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #FAFAFA;
+    border: 0px;
+    padding: 5px;
+    font-weight: normal;
+}
+
+.card-header > a {
+    color: black;
+}
+
+#fav-btn, .card-date {
+    color: #dc3545;
+}
+
+.card-date {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.all-content {
+    position: relative
+}
+
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     margin: 0;
     padding-top: 10px;
@@ -38,4 +73,12 @@ footer {
     color: #eee;
     font-size: 10px;
     text-align: right;
+}
+
+p > a {
+    color: #29c6cc;
+}
+
+p > a:hover {
+    color: #29c6cc;
 }
