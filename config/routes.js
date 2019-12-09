@@ -108,10 +108,16 @@ module.exports = function(router) {
                             // If an error occurred, log it
                             console.log(err);
                         });
-
                 });
-            });
 
+                // Redirect to the home page
+                res.redirect("/");
+            });
+        });
+    });
+
+    router.get('/clear', function(req, res) {
+        db.Headline.deleteMany({}).then(function() {
             // Redirect to the home page
             res.redirect("/");
         });
