@@ -48,6 +48,11 @@ li {
     color: black;
 }
 
+.btn-info {
+    padding: 1px;
+    font-size: 10px;
+}
+
 #fav-btn, .card-date {
     color: #dc3545;
 }

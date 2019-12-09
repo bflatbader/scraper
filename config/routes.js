@@ -54,6 +54,7 @@ module.exports = function(router) {
                     .children("span:nth-child(2)")
                     .text()
                 result.displayDate = moment(result.date).format('MMMM Do YYYY');
+                result.tag = "Crime";
 
                 console.log(result);
                 db.Headline.create(result)
@@ -95,6 +96,7 @@ module.exports = function(router) {
                         .children("span:nth-child(2)")
                         .text()
                     result.displayDate = moment(result.date).format('MMMM Do YYYY');
+                    result.tag = "Coffee";
 
                     console.log(result);
                     db.Headline.create(result)
