@@ -128,4 +128,17 @@ module.exports = function(router) {
     router.get('*', function(req, res) {
         res.render("404");
     });
+
+    router.post('/save/:id', function(req, res) {
+        console.log(req.body);
+        db.Headline.findOneAndUpdate({ _id: req.params.id }, 
+            {$set: {saved: req.body.saved}},
+            function (err, doc) {
+                if (err) {
+                    console.log("update document error");
+                } else {
+                    console.log("update document success");
+                }
+            });
+    });
 }
