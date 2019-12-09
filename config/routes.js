@@ -67,8 +67,12 @@ module.exports = function(router) {
                     });
             });
 
-            // Send a message to the client
-            res.send("Scrape Complete");
+            // Redirect to the home page
+            res.redirect("/");
         });
+    });
+
+    router.get('*', function(req, res) {
+        res.render("404");
     });
 }

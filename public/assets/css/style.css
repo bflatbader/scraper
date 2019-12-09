@@ -1,5 +1,6 @@
-body {
+html, body {
     background-color: #d1d1d8;
+    height: 100%;
 }
 
 li { 
@@ -58,6 +59,7 @@ li {
 }
 
 .all-content {
+    min-height: 100%;
     position: relative
 }
 
