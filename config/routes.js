@@ -116,6 +116,7 @@ module.exports = function(router) {
         });
     });
 
+    // Route to clear the Headline mongoDB collection
     router.get('/clear', function(req, res) {
         db.Headline.deleteMany({}).then(function() {
             // Redirect to the home page
@@ -123,6 +124,7 @@ module.exports = function(router) {
         });
     });
 
+    // Route not found, render 404 handlebars layout
     router.get('*', function(req, res) {
         res.render("404");
     });
