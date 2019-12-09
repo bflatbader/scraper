@@ -16,6 +16,7 @@ $(document).on("click", "#fav-btn", function() {
     var thisId = $(this).attr("data-id");
     var status = $(this).attr("value");
 
+    // Set opposite saved status and value
     if (status === 'true') {
         status = false;
         $(this).attr("value", "false");

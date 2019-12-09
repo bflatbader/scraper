@@ -10,7 +10,7 @@ module.exports = function(router) {
     
     // Route to render the home page
     router.get("/", function(req, res){
-        db.Headline.find({}).sort({date: -1}).then(function(data) {
+        db.Headline.find({}).sort({ date: -1 }).then(function(data) {
             let articleData = {
                 articles: data
             };
@@ -22,7 +22,14 @@ module.exports = function(router) {
 
     // Route to render the saved page
     router.get("/saved", function(req, res){
-        res.render("saved");
+        db.Headline.find({ saved: true }).sort({ date: -1 }).then(function(data) {
+            let articleData = {
+                articles: data
+            };
+            res.render("saved", articleData);
+        }).catch(function(err) {
+            res.json(err);
+        });
     });
 
     // A GET route for scraping HuffPo

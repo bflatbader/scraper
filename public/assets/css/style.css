@@ -53,6 +53,11 @@ li {
     font-size: 10px;
 }
 
+#note-btn {
+    padding-left: 3px;
+    color: #EEB868;
+}
+
 #fav-btn {
     color: #dc3545;
 }
