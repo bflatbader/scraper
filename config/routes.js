@@ -136,8 +136,8 @@ module.exports = function(router) {
         res.render("404");
     });
 
+    // Route to save/unsave an article
     router.post('/save/:id', function(req, res) {
-        console.log(req.body);
         db.Headline.findOneAndUpdate({ _id: req.params.id }, 
             {$set: {saved: req.body.saved}},
             function (err, doc) {
@@ -148,4 +148,17 @@ module.exports = function(router) {
                 }
             });
     });
+
+    // Route to add new note
+    router.post('/addnote', function(req, res) {
+        db.Note.create(req.body)
+            .then(function(dbNote) {
+                // View the added result in the console
+                console.log(dbNote);
+            })
+            .catch(function(err) {
+                // If an error occurred, log it
+                console.log(err);
+            });
+    })
 }

@@ -8,7 +8,6 @@ var NoteSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: "Headline"
     },
-    date: String,
     noteText: String
 });
 

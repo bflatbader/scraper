@@ -14,6 +14,7 @@ function saveUnsaveArticle (id, status) {
 // VARIABLES
 var thisId;
 var status;
+var noteText;
 
 
 // On click broken heart icon
@@ -44,6 +45,25 @@ $(document).on("click", "#note-btn", function() {
     // Grab the id associated with the article
     thisId = $(this).attr("data-id");
     
-    $(".modal-title").text("Notes for Article: " + thisId);
+    $('.modal-title').html('Notes for Article: <span id="id-span">' + thisId + '</span');
     $('#notes-modal').show();
+
+    // TODO: Get notes from MongoDB notes collection, display in modal
+});
+
+// On click save notes button
+$(document).on("click", "#save-btn", function() {
+    // Grab the id associated with the article and the text in the text area
+    thisId = $('#id-span').text();
+    noteText = $('#note-text').val();
+
+    // TODO: Save note to DB, add note to list above
+    $.ajax({
+        method: "POST",
+        url: "/addnote",
+        data: {
+            _headlineId: thisId,
+            noteText: noteText
+        }
+    });
 });
