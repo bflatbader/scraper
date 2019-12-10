@@ -138,6 +138,13 @@ module.exports = function(router) {
         })
     });
 
+    // Route to delete notes by ID
+    router.get('/deletenote/:id', function(req, res) {
+        db.Note.findByIdAndDelete({ _id: req.params.id }).then(function(data) {
+            res.json(data);
+        })
+    });
+
     // Route not found, render 404 handlebars layout
     router.get('*', function(req, res) {
         res.render("404");
@@ -161,11 +168,12 @@ module.exports = function(router) {
         db.Note.create(req.body)
             .then(function(dbNote) {
                 // View the added result in the console
+                res.json(dbNote);
                 console.log(dbNote);
             })
             .catch(function(err) {
                 // If an error occurred, log it
                 console.log(err);
             });
-    })
+    });
 }

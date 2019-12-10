@@ -51,22 +51,29 @@ $(document).on("click", "#note-btn", function() {
     // Grab the id associated with the article
     thisId = $(this).attr("data-id");
     
+    // Set modal title and show modal
     $('.modal-title').html('Notes for Article: <span id="id-span">' + thisId + '</span');
     $('#notes-modal').show();
 
-    // TODO: Get notes from MongoDB notes collection, display in modal
+    // Get route for all notes related to this headlineId
     $.ajax({
         method: "GET",
         url: "/notes/" + thisId
     }).then(function(response){
-        // Get the IDs and text for all notes
-        for (i in response) {
-            noteText = response[i].noteText;
-            noteId = response[i]._id;
-            
-            listItem = `<li class="list-group-item">${noteText} <button id="trash-btn" data-id="${noteId}" class="btn btn-sm float-right"><i class="fas fa-trash-alt"></i></button></li>`
+        // Check if there are notes, if not, notify in modal
+        if (response.length === 0) {
+            listItem = `<li id="no-notes" class="list-group-item">No notes have been added for this article.</li>`
             $('.list-group').append(listItem);
-        
+        } else {
+            // Get all note IDs and texts, then add each item to the modal
+            for (i in response) {
+                noteText = response[i].noteText;
+                noteId = response[i]._id;
+                
+                listItem = `<li data-id="${thisId}" class="list-group-item">${noteText} <button id="trash-btn" data-id="${noteId}" class="btn btn-sm float-right"><i class="fas fa-trash-alt"></i></button></li>`
+                $('.list-group').append(listItem);
+            
+            }
         }
     });
 });
@@ -77,7 +84,10 @@ $(document).on("click", "#save-btn", function() {
     thisId = $('#id-span').text();
     noteText = $('#note-text').val();
 
-    // TODO: Save note to DB, add note to list above
+    // Delete no notes message if it exists
+    if ($('#no-notes')) { $('#no-notes').remove(); }
+
+    // Save note to DB
     $.ajax({
         method: "POST",
         url: "/addnote",
@@ -85,5 +95,29 @@ $(document).on("click", "#save-btn", function() {
             _headlineId: thisId,
             noteText: noteText
         }
+    }).then(function(response) {
+        // Add list item to modal
+        listItem = `<li data-id="${response._id}" class="list-group-item">${noteText} <button id="trash-btn" data-id="${response._id}" class="btn btn-sm float-right"><i class="fas fa-trash-alt"></i></button></li>`
+        $('.list-group').append(listItem);
+        
+        // Empty the note-text textarea
+        $('#note-text').val('');
+    })
+});
+
+// On click trashcan icon
+$(document).on("click", "#trash-btn", function() {
+    // Grab the note's id
+    noteId = $(this).attr('data-id');
+    console.log(noteId);
+
+    // Hide card when un-saved
+    $("li[data-id=" + noteId + "]").hide();
+
+    $.ajax({
+        method: "GET",
+        url: "/deletenote/" + noteId
+    }).then(function () {
+
     });
 });
