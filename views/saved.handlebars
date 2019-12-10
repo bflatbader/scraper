@@ -9,10 +9,27 @@
             </button>
         </div>
         <div class="modal-body">
-            <p>Test</p>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul id="notes-list" class="list-group">
+                            <li class="list-group-item">Here's a note <button id="trash-btn" class="btn btn-sm float-right"><i class="fas fa-trash-alt"></i></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <textarea class="form-control" id="note-text" rows="3" placeholder="Enter new note text here."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="modalClose btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="save-btn" class="btn btn-dark">Save Note</button>
         </div>
         </div>
     </div>

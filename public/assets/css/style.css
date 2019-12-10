@@ -62,6 +62,16 @@ li {
     color: #dc3545;
 }
 
+#save-btn {
+    background-color: #388659;
+    border-color: #388659;
+}
+
+#save-btn:hover {
+    background-color: #32774F;
+    border-color: #32774F;
+}
+
 .card-date {
     font-style: italic;
     font-weight: bold;
