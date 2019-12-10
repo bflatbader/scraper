@@ -15,6 +15,8 @@ function saveUnsaveArticle (id, status) {
 var thisId;
 var status;
 var noteText;
+var noteId;
+var listItem;
 
 
 // On click broken heart icon
@@ -42,6 +44,10 @@ $(document).on("click", "#fav-btn", function() {
 
 // On click note icon
 $(document).on("click", "#note-btn", function() {
+    // Empty the list-group and note-text textarea
+    $('.list-group').empty();
+    $('#note-text').val('');
+    
     // Grab the id associated with the article
     thisId = $(this).attr("data-id");
     
@@ -49,6 +55,20 @@ $(document).on("click", "#note-btn", function() {
     $('#notes-modal').show();
 
     // TODO: Get notes from MongoDB notes collection, display in modal
+    $.ajax({
+        method: "GET",
+        url: "/notes/" + thisId
+    }).then(function(response){
+        // Get the IDs and text for all notes
+        for (i in response) {
+            noteText = response[i].noteText;
+            noteId = response[i]._id;
+            
+            listItem = `<li class="list-group-item">${noteText} <button id="trash-btn" data-id="${noteId}" class="btn btn-sm float-right"><i class="fas fa-trash-alt"></i></button></li>`
+            $('.list-group').append(listItem);
+        
+        }
+    });
 });
 
 // On click save notes button

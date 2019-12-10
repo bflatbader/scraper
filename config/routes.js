@@ -131,6 +131,13 @@ module.exports = function(router) {
         });
     });
 
+    // Route to get notes for a HeadlineID
+    router.get('/notes/:id', function(req, res) {
+        db.Note.find({ _headlineId: req.params.id }).then(function(data) {
+            res.json(data);
+        })
+    });
+
     // Route not found, render 404 handlebars layout
     router.get('*', function(req, res) {
         res.render("404");
