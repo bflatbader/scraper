@@ -1,3 +1,22 @@
+<!-- Hidden Modal -->
+<div id="notes-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close modalClose" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Test</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="modalClose btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
 <!-- Navbar -->
 <div class="all-content">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -14,7 +33,7 @@
                 <a class="nav-link" href="/saved">Saved Articles</a>
             </li>
             <li class="nav-item">
-                <button id="clear" class="btn btn-sm btn-danger" type="button">CLEAR ARTICLES</button>
+                <a class="btn btn-sm btn-danger" href="/clear" role="button">CLEAR ARTICLES</a>
             </li>
             </ul>
         </div>
@@ -31,11 +50,11 @@
         <div class="row">
             <div class="col-md-12">
                 {{#each articles}}
-                    <div class="card">
+                    <div class="card" data-id="{{_id}}">
                         <div class="d-flex align-items-center">
                             <h5 class="highlight card-header mx-auto w-100">
                                 <a href="{{link}}" target="_blank">{{headline}}</a> <button type="button" class="btn btn-info">{{tag}}</button>
-                                <button data-id="{{_id}}" id="note-btn" class="btn float-right" value="{{saved}}"><i class="fas fa-sticky-note"></i></button>
+                                <button data-id="{{_id}}" id="note-btn" class="btn float-right" value="{{saved}}" data-toggle="modal" data-target="#notes-modal"><i class="fas fa-sticky-note"></i></button>
                                 {{#if saved}}                                
                                     <button data-id="{{_id}}" id="fav-btn" class="btn float-right" value="{{saved}}"><i class="fas fa-heart-broken"></i></button>
                                 {{else}}
@@ -66,5 +85,4 @@
     </footer>
 </div>
 <!-- JavaScript -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="../assets/javascript/saved.js"></script>
