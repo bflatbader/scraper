@@ -23,8 +23,10 @@ Visit https://murmuring-cove-54695.herokuapp.com/.
 - An internet browser with JavaScript enabled.
 
 ### Instructions
-#### Scraping New Articles
+#### Articles
+##### Scraping New Articles
 ![warningMsg](public/assets/images/warning.jpg)
+
 If you receive the warning above that there currently are no articles, OR if the articles seem out of date, you can scrape new articles. 
 
 1. Click the SCRAPE NEW ARTICLES button at the top of the window.
@@ -32,25 +34,38 @@ If you receive the warning above that there currently are no articles, OR if the
 
 ![scrapeNew](public/assets/images/scrapeNew.jpg)
 
-#### Saving Articles
+##### Saving Articles
 To save an article, you can click the heart icon all the way to the right of an article. An empty heart indicates the article is NOT saved, while a full heart represents a saved article.
 
-![addFav](public/images/addFav.jpg)
+![addFav](public/assets/images/addFav.jpg)
 
 To access saved articles, click the Saved Articles link at the top of the page.
 
 ![savedLink](public/assets/images/savedLink.jpg)
 
-#### Unsaving Articles
+##### Unsaving Articles
 Clicking a full heart again will unsave the article. From the Saved Articles link, you can click the broken heart icon.
 
 ![unsave](public/assets/images/unsave.jpg)
 
-#### Adding Notes
-TBD
+##### Deleting Articles
+To completely clear out all of the articles, click the CLEAR ARTICLES button at the top of the screen. This will also remove existing notes.
 
-#### Deleting Notes
-TBD
+![clear](public/assets/images/clear.jpg)
 
-#### Deleting Articles
-TBD
+#### Notes
+##### Adding Notes
+From the Saved Articles page, click on the note icon to the right of the article. 
+
+![addNote](public/assets/images/addNote.jpg)
+
+Here, you will see any existing notes for that article. To add a new note, enter text into the text area and click Save Note.
+
+![notesModal](public/assets/images/notesModal.jpg)
+
+##### Deleting Notes
+To delete a note, click the trash can icon to the right of the note.
+
+![delNote](public/assets/images/delNote.jpg)
+
+Alternatively, using the CLEAR ARTICLES button will also remove all notes.
