@@ -1,3 +1,6 @@
+[![Generic badge](https://img.shields.io/badge/Portfolio-Red.svg)](https://bflatbader.github.io/)
+[![Generic badge](https://img.shields.io/badge/LinkedIn-Blue.svg)](https://www.linkedin.com/in/bishop-bader/)
+
 # Mongo Scraper: Coffee & Crime Edition
 
 ## Overview
@@ -29,43 +32,43 @@ Visit https://murmuring-cove-54695.herokuapp.com/.
 
 If you receive the warning above that there currently are no articles, OR if the articles seem out of date, you can scrape new articles. 
 
-1. Click the SCRAPE NEW ARTICLES button at the top of the window.
+1. Click the *SCRAPE NEW ARTICLES* button at the top of the window.
 2. The page will refresh with the new articles.
 
 ![scrapeNew](public/assets/images/scrapeNew.jpg)
 
 ##### Saving Articles
-To save an article, you can click the heart icon all the way to the right of an article. An empty heart indicates the article is NOT saved, while a full heart represents a saved article.
+To save an article, you can click the `heart` icon all the way to the right of an article. An empty heart indicates the article is NOT saved, while a full heart represents a saved article.
 
 ![addFav](public/assets/images/addFav.jpg)
 
-To access saved articles, click the Saved Articles link at the top of the page.
+To access saved articles, click the *Saved Articles* link at the top of the page.
 
 ![savedLink](public/assets/images/savedLink.jpg)
 
 ##### Unsaving Articles
-Clicking a full heart again will unsave the article. From the Saved Articles link, you can click the broken heart icon.
+Clicking a full heart again will unsave the article. From the *Saved Articles* link, you can click the `broken heart` icon.
 
 ![unsave](public/assets/images/unsave.jpg)
 
 ##### Deleting Articles
-To completely clear out all of the articles, click the CLEAR ARTICLES button at the top of the screen. This will also remove existing notes.
+To completely clear out all of the articles, click the *CLEAR ARTICLES* button at the top of the screen. This will also remove existing notes.
 
 ![clear](public/assets/images/clear.jpg)
 
 #### Notes
 ##### Adding Notes
-From the Saved Articles page, click on the note icon to the right of the article. 
+From the *Saved Articles* page, click on the `note` icon to the right of the article. 
 
 ![addNote](public/assets/images/addNote.jpg)
 
-Here, you will see any existing notes for that article. To add a new note, enter text into the text area and click Save Note.
+Here, you will see any existing notes for that article. To add a new note, enter text into the text area and click *Save Note*.
 
 ![notesModal](public/assets/images/notesModal.jpg)
 
 ##### Deleting Notes
-To delete a note, click the trash can icon to the right of the note.
+To delete a note, click the `trash can` icon to the right of the note.
 
 ![delNote](public/assets/images/delNote.jpg)
 
-Alternatively, using the CLEAR ARTICLES button will also remove all notes.
+Alternatively, using the *CLEAR ARTICLES* button will also remove all notes (and all articles).
