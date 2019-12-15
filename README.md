@@ -17,17 +17,34 @@ This web app scrapes the latest news related to 'coffee' and 'crime' topics. The
 - [Font Awesome 5.10.2](https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use)
 
 ## Getting Started
-TBD
+Visit https://murmuring-cove-54695.herokuapp.com/.
 
 ### Prerequisites
 - An internet browser with JavaScript enabled.
 
 ### Instructions
 #### Scraping New Articles
-TBD
+![warningMsg](public/img/warning.jpg)
+If you receive the warning above that there currently are no articles, OR if the articles seem out of date, you can scrape new articles. 
+
+1. Click the SCRAPE NEW ARTICLES button at the top of the window.
+2. The page will refresh with the new articles.
+
+![scrapeNew](public/img/scrapeNew.jpg)
 
 #### Saving Articles
-TBD
+To save an article, you can click the heart icon all the way to the right of an article. An empty heart indicates the article is NOT saved, while a full heart represents a saved article.
+
+![addFav](public/img/addFav.jpg)
+
+To access saved articles, click the Saved Articles link at the top of the page.
+
+![savedLink](public/img/savedLink.jpg)
+
+#### Unsaving Articles
+Clicking a full heart again will unsave the article. From the Saved Articles link, you can click the broken heart icon.
+
+![unsave](public/img/unsave.jpg)
 
 #### Adding Notes
 TBD
