@@ -11,10 +11,14 @@ module.exports = function(router) {
     // Route to render the home page
     router.get("/", function(req, res){
         db.Headline.find({}).sort({ date: -1 }).then(function(data) {
-            let articleData = {
-                articles: data
-            };
-            res.render("home", articleData);
+            if (data.length === 0) {
+                res.render("empty");
+            } else {
+                let articleData = {
+                    articles: data
+                };
+                res.render("home", articleData);
+            }
         }).catch(function(err) {
             res.json(err);
         });
@@ -123,11 +127,12 @@ module.exports = function(router) {
         });
     });
 
-    // Route to clear the Headline mongoDB collection
+    // Route to clear the Headline and Note mongoDB collection
     router.get('/clear', function(req, res) {
         db.Headline.deleteMany({}).then(function() {
-            // Redirect to the home page
-            res.redirect("/");
+            db.Note.deleteMany({}).then(function() {
+                res.redirect("/");
+            });
         });
     });
 

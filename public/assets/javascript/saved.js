@@ -111,7 +111,7 @@ $(document).on("click", "#trash-btn", function() {
     noteId = $(this).attr('data-id');
     console.log(noteId);
 
-    // Hide card when un-saved
+    // Hide note when deleted
     $("li[data-id=" + noteId + "]").hide();
 
     $.ajax({
